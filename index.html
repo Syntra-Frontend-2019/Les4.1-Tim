@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eindoefening Les 4</title>
+</head>
+<body>
+    <h1>Mee te brengen van de Colruyt</h1>
+    <ul id="lstproductenLijst"></ul>
+    <input type="text" id="txtProduct">
+    <button onclick="addItem()">Add</button>
+    <button onclick="removeItem()">Remove</button>
+    <script>
+        var lstproductenLijst = document.querySelector("#lstproductenLijst");
+        var txtProduct = document.querySelector("#txtProduct");
+        var arrayProductenLijst = ["Waspoeder","Kip"];
+        var HTMLProductenLijst;
+
+        function addItem() {
+            var nieuwProduct = txtProduct.value;
+            arrayProductenLijst.push(nieuwProduct);
+            arrayToHTML();
+            //console.log(HTMLProductenLijst);
+            showList();
+        }
+
+        function removeItem() {
+            var deletedProduct = txtProduct.value;
+            var positie = arrayProductenLijst.indexOf(deletedProduct.toLow);
+            if (positie !== -1) {
+                arrayProductenLijst.splice(positie,1);
+            }
+            arrayToHTML();
+            //console.log(HTMLProductenLijst);
+            showList();
+        }
+
+        function arrayToHTML() {
+            HTMLProductenLijst = "<li>" + arrayProductenLijst.join("</li><li>") + "</li>"
+        }
+        function showList() {
+            document.querySelector("#lstproductenLijst").innerHTML = HTMLProductenLijst;
+        }
+        arrayToHTML();
+        showList();
+    </script>
+</body>
+</html>

@@ -39,6 +39,7 @@
 
         function arrayToHTML() {
             HTMLProductenLijst = "<li>" + arrayProductenLijst.join("</li><li>") + "</li>"
+            console.log(HTMLProductenLijst)
         }
         function showList() {
             document.querySelector("#lstproductenLijst").innerHTML = HTMLProductenLijst;
